@@ -1,0 +1,18 @@
+<span class="updated" data-time="{{ .Page.Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Page.Lastmod.Format "Jan 2, 2006" }}</span>
+<script>
+(function () {
+  const el = document.currentScript.previousElementSibling;
+  const t = new Date(el.dataset.time);
+  function render() {
+    const s = Math.floor((Date.now() - t) / 1000);
+    const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+    const parts = [];
+    if (d) parts.push(d + (d === 1 ? " day" : " days"));
+    if (h) parts.push(h + (h === 1 ? " hour" : " hours"));
+    if (!d && m) parts.push(m + (m === 1 ? " minute" : " minutes"));
+    el.textContent = parts.length ? parts.join(", ") + " ago" : "just now";
+  }
+  render();
+  setInterval(render, 60000);
+})();
+</script>

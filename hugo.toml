@@ -2,10 +2,35 @@ baseURL = 'https://kevinbouakar.github.io/portfolio/'
 locale = 'en-us'
 title = "Kevin's Endeavour"
 theme = 'risotto'
+enableGitInfo = true
+
+[frontmatter]
+  lastmod = ['lastmod', ':git', 'date']
 
 [params.theme]
-palette = "base16-dark"
+  palette = "base16-dark"
 
-[caches.images]
-dir = ':cacheDir/images'
-maxAge = -1
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+    maxAge = -1
+
+[[menu.main]]
+  name = "blog"
+  pageRef = "/posts"
+  weight = 1
+
+[[menu.main]]
+  name = "projects"
+  pageRef = "/projects"
+  weight = 2
+
+[[menu.main]]
+  name = "now"
+  pageRef = "/now"
+  weight = 3
+
+[[menu.main]]
+  name = "contact"
+  pageRef = "/contact"
+  weight = 4

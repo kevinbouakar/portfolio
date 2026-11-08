@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../fonts/Rubik-Variable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono Nerd Font';
+  src: url('../fonts/JetBrainsMonoNerdFont-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* main font: switch 'Inter' <-> 'Rubik' here */
+* {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* code font: code blocks, inline code, and everything inside them */
+pre, pre *, code, code *, kbd {
+  font-family: 'JetBrainsMono Nerd Font', monospace !important;
+}
+
+/* green terminal prompts */
+p > code:only-child {
+  color: var(--base0B, #a1b56c);
+  background: transparent;
+  font-weight: 700;
+}
+
+/* green ASCII banner */
+pre:first-child {
+  color: var(--base0B, #a1b56c);
+  background: transparent;
+  line-height: 1.2;
+}
+
+/* green line on the status quote */
+blockquote {
+  border-left: 3px solid var(--base0B, #a1b56c);
+}

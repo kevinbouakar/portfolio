@@ -1,7 +1,11 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://kevinbouakar.github.io/portfolio/'
 locale = 'en-us'
-title = 'Kevins Endeavour'
+title = "Kevin's Endeavour"
 theme = 'risotto'
 
 [params.theme]
 palette = "base16-dark"
+
+[caches.images]
+dir = ':cacheDir/images'
+maxAge = -1

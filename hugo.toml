@@ -1,0 +1,7 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'Kevins Endeavour'
+theme = 'risotto'
+
+[params.theme]
+palette = "base16-dark"

@@ -1,0 +1,19 @@
+
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Windows junk
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+
+# Obsidian settings
+.obsidian/
+
+# Secrets
+.env
+"@ | Set-Content .gitignore

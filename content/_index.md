@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "home"
 ---
 
 ```
@@ -25,9 +25,9 @@ Into cybersecurity, low-level C, CTFs, and a well-pulled espresso ☕
 
 `kevin@endeavour:~$ cat now.txt`
 
-- **working on:** this site + a port scanner in C
+- **working on:** this site + my own home lab ;D
 - **learning:** web exploitation & forensics
-- **brewing:** ___
+- **brewing:** black coffee 
 
 [→ full /now page]({{< relref "/now" >}})
 

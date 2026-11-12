@@ -34,3 +34,5 @@ enableGitInfo = true
   name = "contact"
   pageRef = "/contact"
   weight = 4
+
+capitalizeListTitles = false

@@ -2,6 +2,7 @@ baseURL = 'https://kevinbouakar.github.io/portfolio/'
 locale = 'en-us'
 title = "Kevin's Endeavour"
 theme = 'risotto'
+capitalizeListTitles = false
 enableGitInfo = true
 
 [frontmatter]
@@ -9,6 +10,10 @@ enableGitInfo = true
 
 [params.theme]
   palette = "base16-dark"
+
+[params.about]
+  title = "Kevin Bou Akar"
+  description = "CS student, CTF player and espresso nerd from Lebanon. Notes on security, C and whatever I'm taking apart this week."
 
 [caches]
   [caches.images]
@@ -35,4 +40,3 @@ enableGitInfo = true
   pageRef = "/contact"
   weight = 4
 
-capitalizeListTitles = false

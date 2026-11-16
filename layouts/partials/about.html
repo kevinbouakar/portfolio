@@ -1,0 +1,14 @@
+{{ with site.Params.about }}
+<div class="aside__about">
+    {{ with .logo }}<span class="about__logo" role="img">{{ . }}</span>&nbsp;{{ end }}
+    <p class="about__title">{{ .title }}</p>
+    {{ with .description }}<p class="about__description">{{ . | markdownify }}</p>{{ end }}
+</div>
+{{ end }}
+{{ with site.Params.socialLinks }}
+<ul class="aside__social-links">
+    {{ range . }}
+    <li><a href="{{ if strings.Contains .url ":" }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}" rel="me">{{ .title }}</a></li>
+    {{ end }}
+</ul>
+{{ end }}

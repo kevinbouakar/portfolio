@@ -3,7 +3,7 @@ title: "Who Unfollowed Me - IG Tool"
 date: 2026-02-04T21:03:01+02:00
 lastmod: 2026-02-04T21:03:01+02:00
 draft: false
-tags: []
+tags: ["projects", "tools"]
 slug: "who-unfollowed-me-ig-tool"
 ---
 

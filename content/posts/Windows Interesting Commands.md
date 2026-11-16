@@ -3,7 +3,7 @@ title: "Windows Interesting Commands"
 date: 2026-03-28T22:31:21+02:00
 lastmod: 2026-03-28T22:31:21+02:00
 draft: false
-tags: []
+tags: ["windows", "cli"]
 slug: "windows-interesting-commands"
 ---
 

@@ -1,10 +1,12 @@
-<span class="updated" data-time="{{ .Page.Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Page.Lastmod.Format "Jan 2, 2006" }}</span>
+{{- /* "Last updated: 3 hours, 18 minutes ago". Shows a plain date until the script runs. */ -}}
+<time class="updated" datetime="{{ .Page.Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Page.Lastmod.Format "Jan 2, 2006" }}</time>
 <script>
 (function () {
   const el = document.currentScript.previousElementSibling;
-  const t = new Date(el.dataset.time);
+  const t = new Date(el.dateTime);
   function render() {
     const s = Math.floor((Date.now() - t) / 1000);
+    if (s < 0) return;
     const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
     const parts = [];
     if (d) parts.push(d + (d === 1 ? " day" : " days"));

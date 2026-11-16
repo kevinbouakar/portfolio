@@ -1,0 +1,18 @@
+{{ define "main" }}
+    <header class="content__header">
+        <h1>{{ .Title }}</h1>
+    </header>
+    <div class="content__body">
+        {{ .Content }}
+    </div>
+{{ end }}
+
+{{ define "aside" }}
+    {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+    <p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></p>
+    {{ with .GetTerms "tags" }}
+    <p class="post-tags">
+        {{ range . }}<a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a> {{ end }}
+    </p>
+    {{ end }}
+{{ end }}

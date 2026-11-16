@@ -1,0 +1,11 @@
+{{- /* Obsidian shows the note title above the note, so notes often start at "#".
+       Hugo already prints the title as the page's h1, so in posts that use "#"
+       every heading is moved down one level. Code blocks are ignored. */ -}}
+{{- $level := .Level -}}
+{{- if eq .Page.Section "posts" -}}
+  {{- $noCode := replaceRE "(?s)```.*?```" "" .Page.RawContent -}}
+  {{- if findRE `(?m)^# \S` $noCode 1 -}}
+    {{- $level = math.Min 6 (add .Level 1) | int -}}
+  {{- end -}}
+{{- end -}}
+<h{{ $level }} id="{{ .Anchor }}">{{ .Text }}</h{{ $level }}>

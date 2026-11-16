@@ -3,7 +3,7 @@ title: "Command Line Tools Installed"
 date: 2024-09-27T13:21:08+03:00
 lastmod: 2024-09-27T13:21:08+03:00
 draft: false
-tags: []
+tags: ["tools", "cli"]
 slug: "command-line-tools-installed"
 ---
 

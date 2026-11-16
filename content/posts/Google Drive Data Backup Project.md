@@ -3,7 +3,7 @@ title: "Google Drive Data Backup Project"
 date: 2026-09-22T22:01:02+03:00
 lastmod: 2026-09-22T22:01:02+03:00
 draft: false
-tags: []
+tags: ["backup", "projects"]
 slug: "google-drive-data-backup-project"
 ---
 

@@ -3,7 +3,7 @@ title: "Compiling Code"
 date: 2026-03-28T21:41:58+02:00
 lastmod: 2026-03-28T21:41:58+02:00
 draft: false
-tags: []
+tags: ["c", "programming"]
 slug: "compiling-code"
 ---
 

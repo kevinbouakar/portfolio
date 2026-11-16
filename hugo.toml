@@ -15,6 +15,27 @@ enableGitInfo = true
   title = "Kevin Bou Akar"
   description = "CS student, CTF player and espresso nerd from Lebanon. Notes on security, C and whatever I'm taking apart this week."
 
+# Links shown in the sidebar under your description
+[[params.socialLinks]]
+  title = "github"
+  url = "https://github.com/kevinbouakar"
+
+[[params.socialLinks]]
+  title = "linkedin"
+  url = "https://linkedin.com/in/kevinbouakar"
+
+[[params.socialLinks]]
+  title = "cv"
+  url = "kevinbouakar-cv.pdf"
+
+# Only tags, so Hugo stops building an empty /categories/ page
+[taxonomies]
+  tag = "tags"
+
+# Lets Obsidian's ==highlight== syntax work on the site
+[markup.goldmark.extensions.extras.mark]
+  enable = true
+
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
@@ -39,4 +60,3 @@ enableGitInfo = true
   name = "contact"
   pageRef = "/contact"
   weight = 4
-

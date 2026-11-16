@@ -3,7 +3,7 @@ title: "Brave and Chrome Bookmarks Symlink"
 date: 2026-04-01T21:57:02+03:00
 lastmod: 2026-04-01T21:57:02+03:00
 draft: false
-tags: []
+tags: ["windows", "browsers", "powershell"]
 slug: "brave-and-chrome-bookmarks-symlink"
 ---
 

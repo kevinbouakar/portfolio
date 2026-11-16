@@ -1,48 +1,151 @@
+/* ============================================================
+   custom.css: your own styles, loaded after the Risotto theme
+   ============================================================ */
+
+/* ---------- Fonts (hosted on the site, not on Google) ---------- */
 @font-face {
   font-family: 'Inter';
-  src: url('../fonts/Inter-Variable.ttf') format('truetype');
+  src: url('../fonts/Inter-Variable.woff2') format('woff2');
   font-weight: 100 900;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Rubik';
-  src: url('../fonts/Rubik-Variable.ttf') format('truetype');
-  font-weight: 300 900;
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'JetBrainsMono Nerd Font';
-  src: url('../fonts/JetBrainsMonoNerdFont-Regular.ttf') format('truetype');
-  font-display: swap;
+/* Risotto reads its code font from this variable */
+:root {
+  --font-monospace: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --accent: var(--base0B, #a1b56c);
 }
 
-/* main font: switch 'Inter' <-> 'Rubik' here */
-* {
-  font-family: 'Inter', sans-serif !important;
+/* main text font */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* code font: code blocks, inline code, and everything inside them */
-pre, pre *, code, code *, kbd {
-  font-family: 'JetBrainsMono Nerd Font', monospace !important;
+/* code font: code blocks, inline code, and the coloured pieces inside them */
+pre, pre *, code, code *, kbd, samp {
+  font-family: var(--font-monospace);
 }
 
-/* green terminal prompts */
-p > code:only-child {
-  color: var(--base0B, #a1b56c);
-  background: transparent;
-  font-weight: 700;
+/* ---------- Terminal touches (homepage, contact, projects) ---------- */
+
+/* prompt lines, written as {{< prompt "whoami" >}} */
+.prompt code {
+  color: var(--accent);
+  background: transparent !important;
+  padding: 0;
 }
 
-/* green ASCII banner */
-pre:first-child {
-  color: var(--base0B, #a1b56c);
-  background: transparent;
+/* ASCII banner, written as ```text {class="banner"} */
+.banner, .banner pre, .banner code {
+  color: var(--accent) !important;
+  background: transparent !important;
+}
+.banner pre, pre.banner {
+  padding: 0;
   line-height: 1.2;
 }
 
-/* green line on the status quote */
+/* ---------- Content, closer to how Obsidian shows it ---------- */
+
+/* hide the theme's "#" markers in front of headings */
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+  content: none;
+}
+
+/* heading sizes, so levels are visible without the "#" markers */
+.page__body h1 { font-size: 1.5rem;  line-height: 2rem; }
+.page__body h2 { font-size: 1.25rem; line-height: 1.75rem; color: var(--accent); }
+.page__body h3 { font-size: 1.1rem; }
+.page__body h4, .page__body h5, .page__body h6 { color: var(--off-fg); }
+.page__body h2, .page__body h3 { margin-top: 2rem; }
+.page__body h1, .page__body h2 { margin-bottom: 0.5rem; }
+
+/* normal bullets instead of the theme's "∗" */
+.page__body ul li::marker {
+  content: normal;
+  color: var(--muted);
+}
+
+/* plain quotes: a coloured line instead of the theme's ">" */
 blockquote {
-  border-left: 3px solid var(--base0B, #a1b56c);
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+}
+blockquote::before {
+  content: none;
+}
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Obsidian callouts: > [!note], [!tip], [!important], [!warning], [!caution] */
+.callout {
+  --c: var(--base0D, #7cafc2);
+  border: 1px solid var(--c);
+  border-left-width: 3px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem 0;
+}
+.callout-title {
+  color: var(--c);
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+.callout-tip       { --c: var(--base0C, #86c1b9); }
+.callout-important { --c: var(--base0E, #ba8baf); }
+.callout-warning   { --c: var(--base09, #dc9656); }
+.callout-caution   { --c: var(--base08, #ab4642); }
+
+/* "---" divider inside content: a thin line instead of the text "---" */
+.page__body hr {
+  border-top: 1px solid var(--muted);
+}
+.page__body hr::after {
+  content: none;
+}
+
+/* ---------- Blog index ---------- */
+.post-list {
+  list-style: none;
+  padding-left: 0;
+}
+.post-list li {
+  display: flex;
+  gap: 1rem;
+}
+.post-list time {
+  font-family: var(--font-monospace);
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* ---------- Sidebar ---------- */
+
+/* hide the theme's "---" between your bio and the page info */
+.page__aside > hr {
+  display: none;
+}
+.aside__content {
+  margin-top: 1.5rem;
+}
+.about__title {
+  font-weight: 600;
+  color: var(--fg);
+}
+.aside__social-links li + li::before {
+  content: "· ";
+  color: var(--muted);
+}
+.post-tags a {
+  margin-right: 0.5rem;
 }

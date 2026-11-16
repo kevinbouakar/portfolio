@@ -3,7 +3,7 @@ title: "Get your Public IP Address"
 date: 2024-11-18T01:20:46+02:00
 lastmod: 2024-11-18T01:20:46+02:00
 draft: false
-tags: []
+tags: ["networking", "cli"]
 slug: "get-your-public-ip-address"
 ---
 

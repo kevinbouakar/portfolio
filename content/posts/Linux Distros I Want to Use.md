@@ -3,7 +3,7 @@ title: "Linux Distros I Want to Use"
 date: 2026-03-28T22:32:56+02:00
 lastmod: 2026-03-28T22:32:56+02:00
 draft: false
-tags: []
+tags: ["linux"]
 slug: "linux-distros-i-want-to-use"
 ---
 

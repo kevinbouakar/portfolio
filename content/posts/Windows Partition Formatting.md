@@ -3,7 +3,7 @@ title: "Windows Partition Formatting"
 date: 2025-09-17T08:31:44+03:00
 lastmod: 2025-09-17T08:31:44+03:00
 draft: false
-tags: []
+tags: ["windows", "cli"]
 slug: "windows-partition-formatting"
 ---
 

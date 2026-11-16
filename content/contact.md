@@ -2,7 +2,7 @@
 title: "contact"
 ---
 
-`kevin@endeavour:~$ chmod +x ./contact.sh && ./contact.sh`
+{{< prompt "chmod +x ./contact.sh && ./contact.sh" >}}
 
 - **email:** [bouakarkevin@gmail.com](mailto:bouakarkevin@gmail.com)
 - **github:** [@kevinbouakar](https://github.com/kevinbouakar)

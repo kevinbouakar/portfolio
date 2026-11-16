@@ -3,7 +3,7 @@ title: "Windows Get Product Key"
 date: 2024-09-27T13:21:08+03:00
 lastmod: 2024-09-27T13:21:08+03:00
 draft: false
-tags: []
+tags: ["windows", "cli"]
 slug: "windows-get-product-key"
 ---
 

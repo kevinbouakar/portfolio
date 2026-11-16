@@ -2,7 +2,7 @@
 title: "projects"
 ---
 
-`kevin@endeavour:~$ ls ~/projects`
+{{< prompt "ls ~/projects" >}}
 
 - **port-scanner/**: a TCP port scanner written in C. *(in progress)*
 - **task-tracker/**: a web task tracker hosted on GitHub Pages.

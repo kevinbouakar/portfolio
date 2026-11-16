@@ -3,7 +3,7 @@ title: "Windows Clearing Uninstalled Apps Files"
 date: 2024-09-27T13:35:36+03:00
 lastmod: 2024-09-27T13:35:36+03:00
 draft: false
-tags: []
+tags: ["windows"]
 slug: "windows-clearing-uninstalled-apps-files"
 ---
 

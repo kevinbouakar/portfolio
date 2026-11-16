@@ -1,0 +1,2 @@
+{{- /* A terminal prompt line. Usage: {{< prompt "whoami" >}} */ -}}
+<p class="prompt"><code>{{ site.Params.prompt | default "kevin@endeavour:~$" }} {{ .Get 0 }}</code></p>

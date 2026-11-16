@@ -16,4 +16,3 @@ desktop.ini
 
 # Secrets
 .env
-"@ | Set-Content .gitignore

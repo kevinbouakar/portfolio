@@ -3,7 +3,7 @@ title: "Windows Setting up WSL"
 date: 2025-01-03T11:42:16+02:00
 lastmod: 2025-01-03T11:42:16+02:00
 draft: false
-tags: []
+tags: ["windows", "linux", "wsl"]
 slug: "windows-setting-up-wsl"
 ---
 

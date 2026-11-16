@@ -3,7 +3,7 @@ title: "Some Useful Registry Tweaks"
 date: 2026-09-22T23:15:34+03:00
 lastmod: 2026-09-22T23:15:34+03:00
 draft: false
-tags: []
+tags: ["windows", "registry"]
 slug: "some-useful-registry-tweaks"
 ---
 

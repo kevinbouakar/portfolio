@@ -3,7 +3,7 @@ title: "Undownloadable PDF file from website"
 date: 2025-10-28T08:37:56+02:00
 lastmod: 2025-10-28T08:37:56+02:00
 draft: false
-tags: []
+tags: ["web", "browsers"]
 slug: "undownloadable-pdf-file-from-website"
 ---
 

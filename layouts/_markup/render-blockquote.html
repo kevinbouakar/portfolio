@@ -1,0 +1,12 @@
+{{- /* Turns Obsidian callouts ("> [!warning] Title") into styled boxes.
+       Ordinary quotes are left as they are. */ -}}
+{{- if eq .Type "alert" -}}
+<blockquote class="callout callout-{{ .AlertType }}">
+  <p class="callout-title">{{ with .AlertTitle }}{{ . }}{{ else }}{{ .AlertType }}{{ end }}</p>
+  {{ .Text }}
+</blockquote>
+{{- else -}}
+<blockquote>
+  {{ .Text }}
+</blockquote>
+{{- end -}}

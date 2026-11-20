@@ -14,7 +14,7 @@ Web exploitation and forensics, one CTF at a time.
 Dialing in espresso or enjoying my black coffee. Currently sipping an iced spanish latte.
 
 ## listening
-On repeat: ___
+{{< nowplaying >}}
 
 ## watching
 I'm 3 seasons deep into "The Mentalist" on Netflix ;p.

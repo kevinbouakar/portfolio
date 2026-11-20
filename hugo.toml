@@ -60,3 +60,6 @@ enableGitInfo = true
   name = "contact"
   pageRef = "/contact"
   weight = 4
+
+[params]
+  lastfmUser = "keviee"

@@ -154,3 +154,26 @@ blockquote > :last-child {
   max-width: 100%; 
   border-radius: 6px;
  }
+
+/* Last.fm now playing */
+.np {
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.np-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.np-label {
+  margin: 0;
+  font-weight: 600;
+  color: var(--fg);
+}
+.np-footer {
+  margin: 0.5rem 0 0;
+  font-size: 0.85em;
+  color: var(--muted);
+}

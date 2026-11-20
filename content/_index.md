@@ -14,13 +14,13 @@ Cybersecurity lover, CS student and espresso nerd from Lebanon. Notes on securit
 
 {{< prompt "ls ~/" >}}
 
-[blog/]({{< relref "/posts" >}}) · [projects/]({{< relref "/projects" >}}) · [now/]({{< relref "/now" >}}) · [contact/]({{< relref "/contact" >}}) · [cv.pdf](kevinbouakar-cv.pdf) · [github](https://github.com/kevinbouakar)
+[blog/]({{< relref "/posts" >}}) · [projects/]({{< relref "/projects" >}}) · [now/]({{< relref "/now" >}}) · [contact/]({{< relref "/contact" >}})
 
 {{< prompt "cat now.txt" >}}
 
-- **working on:** this site + my own home lab ;D
-- **learning:** web exploitation & forensics
-- **brewing:** black coffee 
+- **working on:** this site + my own home lab. :) 
+- **learning:** getting familiar with web exploitation, cryptography and python automation.
+- **brewing:** black coffee.
 
 [→ full /now page]({{< relref "/now" >}})
 

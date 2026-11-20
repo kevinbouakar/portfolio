@@ -357,3 +357,27 @@ html:not([data-theme="dark"]) .page__logo-inner::after {
 @media (prefers-reduced-motion: reduce) {
   .theme-switch button { transition: none; }
 }
+
+/* 404: red error box */
+.page__body pre:has(.missing-path) {
+  background: color-mix(in oklch, var(--base08, #ab4642) 15%, transparent) !important;
+  border: 1px solid color-mix(in oklch, var(--base08, #ab4642) 35%, transparent);
+  border-radius: 6px;
+}
+.page__body pre:has(.missing-path) code {
+  color: var(--base08, #ab4642);
+  background: transparent !important;
+}
+
+/* ---------- Footer ---------- */
+.page__footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in oklch, var(--fg) 12%, transparent);
+  font-size: 0.85rem;
+  color: var(--off-fg);
+}
+.footer__prompt {
+  font-family: var(--font-monospace);
+  color: var(--accent);
+}

@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1>404</h1>
+
+<p class="prompt"><code>kevin@endeavour:~$ cd <span class="missing-path">that-page</span></code></p>
+<pre><code>bash: cd: <span class="missing-path">that-page</span>: No such file or directory</code></pre>
+
+<script>
+  document.querySelectorAll(".missing-path").forEach(function (el) {
+    el.textContent = location.pathname;
+  });
+</script>
+{{ end }}

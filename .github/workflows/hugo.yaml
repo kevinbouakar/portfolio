@@ -120,7 +120,8 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/.cache/hugo"
-        env: HUGO_PARAMS_LASTFMKEY: ${{ secrets.LASTFM_KEY }}
+        env:
+          HUGO_PARAMS_LASTFMKEY: ${{ secrets.LASTFM_KEY }}
 
       - name: Cache save
         uses: actions/cache/save@v6

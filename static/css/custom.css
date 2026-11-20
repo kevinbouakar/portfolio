@@ -157,23 +157,34 @@ blockquote > :last-child {
 
 /* Last.fm now playing */
 .np {
-  border: 1px solid var(--muted);
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.5rem;
-}
-.np-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 1rem;
+  border: 2px solid var(--base0E, #ba8baf);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.np-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+.np-info > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .np-label {
-  margin: 0;
   font-weight: 600;
-  color: var(--fg);
+  color: var(--base0E, #ba8baf);
 }
-.np-footer {
-  margin: 0.5rem 0 0;
-  font-size: 0.85em;
-  color: var(--muted);
+.np-cover {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
 }

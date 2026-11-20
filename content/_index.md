@@ -2,7 +2,7 @@
 title: "home"
 ---
 
-{{< pinterest "920423242655117637" >}}
+{{< banner >}}
 
 {{< prompt "whoami" >}}
 

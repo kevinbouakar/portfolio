@@ -149,3 +149,8 @@ blockquote > :last-child {
 .post-tags a {
   margin-right: 0.5rem;
 }
+
+.banner-video { 
+  max-width: 100%; 
+  border-radius: 6px;
+ }

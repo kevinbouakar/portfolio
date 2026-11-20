@@ -1,8 +1,19 @@
 <div class="np">
-  <div class="np-info">
-    <div><span class="np-label">Track:</span> <a class="np-track"></a></div>
-    <div><span class="np-label">Artist:</span> <a class="np-artist"></a></div>
-    <div><span class="np-label">Album:</span> <span class="np-album">loading…</span></div>
+  <div class="np-main">
+    <div class="np-cols">
+      <div class="np-col">
+        <span class="np-label">artist</span>
+        <a class="np-artist">…</a>
+      </div>
+      <div class="np-col">
+        <span class="np-label">track</span>
+        <a class="np-track">…</a>
+      </div>
+    </div>
+    <div class="np-footer">
+      <span class="np-eq" hidden aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="np-meta">loading…</span>
+    </div>
   </div>
   <img class="np-cover" alt="" hidden>
 </div>
@@ -11,21 +22,21 @@
   const box = document.currentScript.previousElementSibling;
   const $ = (s) => box.querySelector(s);
   const q = encodeURIComponent;
-  const url = "https://ws.audioscrobbler.com/2.0/?format=json&limit=1"
-    + "&method=user.getrecenttracks"
-    + "&user=" + q("{{ site.Params.lastfmUser }}")
-    + "&api_key={{ site.Params.lastfmKey }}";
+  const user = "{{ site.Params.lastfmUser }}";
+  const api = "https://ws.audioscrobbler.com/2.0/?format=json&api_key={{ site.Params.lastfmKey }}";
   try {
-    const data = await (await fetch(url)).json();
-    const t = data.recenttracks.track[0];
+    const recent = await (await fetch(api + "&method=user.getrecenttracks&limit=1&user=" + q(user))).json();
+    const t = recent.recenttracks.track[0];
     const artist = t.artist["#text"];
     const album = t.album["#text"];
+    const live = t["@attr"] && t["@attr"].nowplaying === "true";
 
-    $(".np-track").textContent = t.name;
-    $(".np-track").href = t.url;
     $(".np-artist").textContent = artist;
     $(".np-artist").href = "https://www.last.fm/music/" + q(artist);
-    $(".np-album").textContent = album || "—";
+    $(".np-track").textContent = t.name;
+    $(".np-track").href = t.url;
+    $(".np-eq").hidden = !live;
+    box.classList.toggle("is-live", live);
 
     const cover = (t.image || []).map((i) => i["#text"]).filter(Boolean).pop();
     if (cover) {
@@ -33,8 +44,17 @@
       $(".np-cover").alt = "Album cover of " + (album || t.name);
       $(".np-cover").hidden = false;
     }
+
+    let plays = "";
+    try {
+      const info = await (await fetch(api + "&method=track.getInfo&username=" + q(user)
+        + "&artist=" + q(artist) + "&track=" + q(t.name))).json();
+      if (info.track && info.track.userplaycount) plays = "Playcount: " + info.track.userplaycount;
+    } catch (e) {}
+
+    $(".np-meta").textContent = [plays, album].filter(Boolean).join(" • ");
   } catch (e) {
-    $(".np-album").textContent = "couldn't reach last.fm";
+    $(".np-meta").textContent = "couldn't reach last.fm";
   }
 })();
 </script>

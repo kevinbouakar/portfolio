@@ -156,35 +156,120 @@ blockquote > :last-child {
  }
 
 /* Last.fm now playing */
+/* ---------- Last.fm now playing ---------- */
 .np {
-  display: flex;
+  --np-pad: 12px;
+  --np-radius: 18px;
+  --np-a: var(--base0E, #ba8baf);
+  --np-b: var(--base0B, #a1b56c);
+  --np-card: color-mix(in oklch, var(--off-bg, #282828), white 5%);
+
+  display: grid;
+  max-width: 450px;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
-  border: 2px solid var(--base0E, #ba8baf);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin: 0.5rem 0 1.5rem;
+  padding: var(--np-pad) var(--np-pad) var(--np-pad) calc(var(--np-pad) + 6px);
+  margin: 0.75rem 0 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--np-radius);
+  background:
+    linear-gradient(var(--np-card), var(--np-card)) padding-box,
+    linear-gradient(135deg in oklch, var(--np-a), var(--np-b)) border-box;
 }
-.np-info {
+
+.np-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25rem 1.25rem;
+}
+
+.np-col {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   min-width: 0;
 }
-.np-info > div {
+
+.np-label {
+  font-family: var(--font-monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--np-a);
+}
+
+.np-col a {
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.np-col a:hover {
+  color: var(--np-b);
+  text-decoration: underline;
+}
+
+.np-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgb(255 255 255 / 0.08);
+  font-size: 0.8rem;
+  color: var(--off-fg);
+  min-width: 0;
+}
+.np-meta {
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.np-label {
-  font-weight: 600;
-  color: var(--base0E, #ba8baf);
-}
+
+/* album cover: inner radius = outer radius - padding */
 .np-cover {
-  width: 96px;
-  height: 96px;
+  width: 88px;
+  height: 88px;
   object-fit: cover;
-  border-radius: 6px;
-  flex-shrink: 0;
+  border-radius: calc(var(--np-radius) - var(--np-pad));
+  border: 1px solid rgb(255 255 255 / 0.12);
+  transition: transform 0.2s ease;
+}
+.np-cover:hover {
+  transform: scale(1.04);
+}
+
+/* little equalizer, only while a song is actually playing */
+.np-eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+.np-eq[hidden] { display: none; }
+.np-eq i {
+  width: 3px;
+  height: 100%;
+  border-radius: 1px;
+  background: var(--np-b);
+  transform-origin: bottom;
+  animation: np-bounce 0.9s ease-in-out infinite;
+}
+.np-eq i:nth-child(2) { animation-delay: -0.3s; }
+.np-eq i:nth-child(3) { animation-delay: -0.6s; }
+@keyframes np-bounce {
+  0%, 100% { transform: scaleY(0.3); }
+  50%      { transform: scaleY(1); }
+}
+
+/* phones: stack the two columns */
+@media (max-width: 480px) {
+  .np-cols { grid-template-columns: minmax(0, 1fr); }
+  .np-cover { width: 72px; height: 72px; }
+}
+
+/* respect "reduce motion" */
+@media (prefers-reduced-motion: reduce) {
+  .np-eq i, .np-cover { animation: none; transition: none; }
 }

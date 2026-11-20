@@ -20,7 +20,7 @@
 /* Risotto reads its code font from this variable */
 :root {
   --font-monospace: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
-  --accent: var(--base0B, #a1b56c);
+  --accent: color-mix(in oklch, var(--base0B, #a1b56c), black 35%);
 }
 
 /* main text font */
@@ -160,9 +160,9 @@ blockquote > :last-child {
 .np {
   --np-pad: 12px;
   --np-radius: 18px;
-  --np-a: var(--base0E, #ba8baf);
-  --np-b: var(--base0B, #a1b56c);
-  --np-card: color-mix(in oklch, var(--off-bg, #282828), white 5%);
+  --np-a: var(--accent);
+  --np-b: var(--accent);
+  --np-card: color-mix(in oklch, var(--off-bg, #282828), var(--bg) 40%);
 
   display: grid;
   max-width: 450px;
@@ -216,7 +216,7 @@ blockquote > :last-child {
   gap: 0.5rem;
   margin-top: 0.6rem;
   padding-top: 0.6rem;
-  border-top: 1px solid rgb(255 255 255 / 0.08);
+  border-top: 1px solid color-mix(in oklch, var(--fg) 12%, transparent);
   font-size: 0.8rem;
   color: var(--off-fg);
   min-width: 0;
@@ -233,7 +233,7 @@ blockquote > :last-child {
   height: 88px;
   object-fit: cover;
   border-radius: calc(var(--np-radius) - var(--np-pad));
-  border: 1px solid rgb(255 255 255 / 0.12);
+  border: 1px solid color-mix(in oklch, var(--fg) 15%, transparent);
   transition: transform 0.2s ease;
 }
 .np-cover:hover {
@@ -272,4 +272,88 @@ blockquote > :last-child {
 /* respect "reduce motion" */
 @media (prefers-reduced-motion: reduce) {
   .np-eq i, .np-cover { animation: none; transition: none; }
+}
+
+/* ---------- Light / dark mode ---------- */
+
+/* dark mode: base16-dark colours, switched on by the sidebar toggle */
+html[data-theme="dark"] {
+  --base00: #181818;
+  --base01: #282828;
+  --base02: #383838;
+  --base03: #585858;
+  --base04: #b8b8b8;
+  --base05: #d8d8d8;
+  --base06: #e8e8e8;
+  --base07: #f8f8f8;
+  --base08: #ab4642;
+  --base09: #dc9656;
+  --base0A: #f7ca88;
+  --base0B: #a1b56c;
+  --base0C: #86c1b9;
+  --base0D: #7cafc2;
+  --base0E: #ba8baf;
+  --base0F: #a16946;
+  --accent: var(--base0B);
+  color-scheme: dark;
+}
+html {
+  color-scheme: light;
+}
+
+/* light mode: darker link blue so links stay readable on white */
+html:not([data-theme="dark"]) {
+  --link: color-mix(in oklch, var(--base0D), black 30%);
+  --hover: color-mix(in oklch, var(--base0C), black 35%);
+}
+
+/* the "[kevin's endeavour] $" logo: dark text on the green in light mode */
+html:not([data-theme="dark"]) .page__logo,
+html:not([data-theme="dark"]) .page__logo-inner::before,
+html:not([data-theme="dark"]) .page__logo-inner::after {
+  color: var(--base07);
+}
+
+/* the light / system / dark switch */
+.theme-switch {
+  --ts-pad: 3px;
+  --ts-radius: 10px;
+  display: inline-flex;
+  gap: 2px;
+  padding: var(--ts-pad);
+  margin-bottom: 1rem;
+  border: 1px solid color-mix(in oklch, var(--fg) 15%, transparent);
+  border-radius: var(--ts-radius);
+  background: color-mix(in oklch, var(--fg) 4%, transparent);
+}
+.theme-switch[hidden] {
+  display: none;
+}
+.theme-switch button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 26px;
+  padding: 0;
+  color: var(--off-fg);
+  background: transparent;
+  border: 0;
+  /* inner radius = outer radius - padding */
+  border-radius: calc(var(--ts-radius) - var(--ts-pad));
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.theme-switch button:hover {
+  color: var(--fg);
+}
+.theme-switch button[aria-checked="true"] {
+  color: var(--accent);
+  background: color-mix(in oklch, var(--fg) 12%, transparent);
+}
+.theme-switch button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-switch button { transition: none; }
 }

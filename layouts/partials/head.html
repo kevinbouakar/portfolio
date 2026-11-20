@@ -15,6 +15,16 @@
 <link rel="canonical" href="{{ .Permalink }}">
 {{ if site.Params.noindex }}<meta name="robots" content="noindex">{{ end }}
 
+<!-- theme: follows the visitor's device by default; "light" or "dark" if they picked one -->
+<script>
+  try {
+    var t = localStorage.getItem("theme") || "system";
+    if (t === "dark" || (t === "system" && matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.dataset.theme = "dark";
+    }
+  } catch (e) {}
+</script>
+
 <!-- styles: palette, theme, then your own overrides -->
 <link rel="stylesheet" href="{{ printf "css/palettes/%s.css" (site.Params.theme.palette | default "base16-dark") | relURL }}">
 <link rel="stylesheet" href="{{ "css/risotto.css" | relURL }}">

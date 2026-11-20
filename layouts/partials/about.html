@@ -1,8 +1,42 @@
+<div class="theme-switch" role="radiogroup" aria-label="Colour theme" hidden>
+    <button type="button" role="radio" data-theme-choice="light" title="Light"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+    <button type="button" role="radio" data-theme-choice="system" title="Match my device"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+    <button type="button" role="radio" data-theme-choice="dark" title="Dark"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.99 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.78 9.79z"/></svg></button>
+</div>
+<script>
+(function () {
+  const box = document.currentScript.previousElementSibling;
+  const root = document.documentElement;
+  const media = matchMedia("(prefers-color-scheme: dark)");
+  let choice = "system";
+  try { choice = localStorage.getItem("theme") || "system"; } catch (e) {}
+
+  function apply() {
+    const dark = choice === "dark" || (choice === "system" && media.matches);
+    if (dark) root.dataset.theme = "dark"; else delete root.dataset.theme;
+    box.querySelectorAll("button").forEach(function (b) {
+      const on = b.dataset.themeChoice === choice;
+      b.setAttribute("aria-checked", String(on));
+      b.tabIndex = on ? 0 : -1;
+    });
+  }
+
+  box.addEventListener("click", function (e) {
+    const b = e.target.closest("button");
+    if (!b) return;
+    choice = b.dataset.themeChoice;
+    try { localStorage.setItem("theme", choice); } catch (e) {}
+    apply();
+  });
+  media.addEventListener("change", function () { if (choice === "system") apply(); });
+
+  apply();
+  box.hidden = false;
+})();
+</script>
 {{ with site.Params.about }}
 <div class="aside__about">
-    {{ with .logo }}<span class="about__logo" role="img">{{ . }}</span>&nbsp;{{ end }}
     <p class="about__title">{{ .title }}</p>
-    {{ with .description }}<p class="about__description">{{ . | markdownify }}</p>{{ end }}
 </div>
 {{ end }}
 {{ with site.Params.socialLinks }}

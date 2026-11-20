@@ -6,12 +6,11 @@ title: "home"
 
 {{< prompt "whoami" >}}
 
-Kevin Bou Akar. CS student at the Lebanese University, Lebanon.
-Into cybersecurity, low-level C, CTFs, and a well-pulled espresso ☕
+Cybersecurity lover, CS student and espresso nerd from Lebanon. Notes on security, C, CTFs and whatever I'm taking apart this week. ☕
 
 {{< prompt "cat status.txt" >}}
 
-> 🟢 Looking for a **SOC Analyst internship** (Lebanon or remote)
+> Looking for a Cybersecurity and/or IT internships, a CTF team, and good coffee recommendations.
 
 {{< prompt "ls ~/" >}}
 

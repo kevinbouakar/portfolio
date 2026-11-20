@@ -9,7 +9,7 @@ enableGitInfo = true
   lastmod = ['lastmod', ':git', 'date']
 
 [params.theme]
-  palette = "base16-dark"
+  palette = "base16-light"
 
 [params.about]
   title = "Kevin Bou Akar"
